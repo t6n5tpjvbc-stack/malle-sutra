@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Malle 2026 · Kamasutra Profil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#E6C15A; --gold-mid:#C9A24B; --gold-dim:#8a7a52;
+    --cream:#F5EBD0; --red:#C0392B; --bg:#050505;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{background:var(--bg);color:var(--cream);font-family:'Oswald',sans-serif;}
+  body{min-height:100vh;display:flex;flex-direction:column;align-items:center;
+       justify-content:center;padding:24px 18px;overflow-x:hidden;}
+
+  /* ---------- PROFIL ---------- */
+  .card{width:100%;max-width:360px;text-align:center;}
+  .eyebrow{font-size:12px;letter-spacing:6px;color:var(--red);font-weight:600;margin-bottom:6px;}
+  .header{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:1px;color:var(--gold);
+          line-height:1.05;text-shadow:0 0 22px rgba(230,193,90,.28);margin-bottom:2px;}
+
+  .divider{display:flex;align-items:center;gap:12px;margin:20px 4px;}
+  .divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-mid));}
+  .divider .line.r{background:linear-gradient(90deg,var(--gold-mid),transparent);}
+  .divider .dot{color:var(--gold-mid);font-size:13px;}
+
+  .name{font-family:'Anton',sans-serif;font-size:clamp(44px,15vw,58px);letter-spacing:3px;
+        color:var(--cream);line-height:1;text-shadow:0 2px 24px rgba(245,235,208,.15);}
+  .nick{display:inline-block;margin-top:12px;padding:6px 18px;border:1px solid var(--gold-mid);
+        border-radius:999px;font-weight:600;font-size:13px;letter-spacing:3px;color:var(--gold);}
+
+  .poslabel{margin:28px 0 10px;font-weight:600;font-size:11px;letter-spacing:4px;color:var(--red);}
+  .posemoji{font-size:40px;line-height:1;margin-bottom:10px;}
+  .position{font-family:'Anton',sans-serif;font-size:clamp(26px,8vw,32px);letter-spacing:.5px;
+            color:var(--gold);line-height:1.1;}
+
+  .sparkle{margin:22px 0 6px;color:var(--gold-mid);font-size:14px;letter-spacing:9px;}
+  .cta{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:2px;color:var(--cream);margin-bottom:18px;}
+
+  .btn{width:100%;max-width:220px;margin:0 auto;background:linear-gradient(180deg,var(--gold),var(--gold-mid));
+       border:2px solid var(--red);border-radius:20px;padding:18px 0;font-size:46px;line-height:1;
+       cursor:pointer;box-shadow:0 0 26px rgba(230,193,90,.32);transition:transform .12s ease;}
+  .btn:active{transform:scale(.96);}
+  .btn.done{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:1px;color:#3a2a08;padding:22px 0;}
+
+  .footer{margin-top:24px;font-size:11px;letter-spacing:1px;color:var(--gold-dim);line-height:1.6;}
+
+  /* ---------- ÜBERSICHT ---------- */
+  .grid-wrap{width:100%;max-width:640px;text-align:center;}
+  .grid-title{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:1px;color:var(--gold);line-height:1.1;}
+  .grid-sub{font-size:12px;letter-spacing:3px;color:var(--red);font-weight:600;margin:8px 0 22px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+  a.tile{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;
+         background:#0d0d0d;border:1px solid #2a2412;border-radius:14px;padding:16px 12px;
+         transition:border-color .15s ease,background .15s ease;}
+  a.tile:hover{border-color:var(--gold-mid);background:#120f06;}
+  .tile .e{font-size:26px;}
+  .tile .tn{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:1px;color:var(--cream);}
+  .tile .tp{font-size:11px;color:var(--gold);line-height:1.25;}
+  .tile .tl{font-size:10px;color:var(--gold-dim);letter-spacing:1px;margin-top:2px;}
+  .grid-foot{margin-top:22px;font-size:11px;letter-spacing:1px;color:var(--gold-dim);line-height:1.6;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+const PEOPLE = [
+  {slug:"jojo",    name:"Johannes", nick:"Jojo",    emoji:"🪀", pos:"Das doppelte Jojo"},
+  {slug:"nase",    name:"Stefan",   nick:"Nase",    emoji:"👃", pos:"Der Nasenbär"},
+  {slug:"moc",     name:"Marco",    nick:"Moc",     emoji:"🐊", pos:"Das MOCodil"},
+  {slug:"pinni",   name:"Sven",     nick:"Pinni",   emoji:"📌", pos:"Die doppelte Pinnadel"},
+  {slug:"daumen",  name:"Dominik",  nick:"Daumen",  emoji:"👍", pos:"Der umgedrehte Daumen"},
+  {slug:"alberto", name:"Albert",   nick:"Alberto", emoji:"🪑", pos:"Der mallorquinische Klappstuhl"},
+  {slug:"alex",    name:"Sascha",   nick:"Alex",    emoji:"🥨", pos:"Der verknotete Alex"},
+  {slug:"trex",    name:"Till",     nick:"T-Rex",   emoji:"🦖", pos:"Der einarmige T-Rex"},
+  {slug:"christo", name:"Christoph",nick:"Christo", emoji:"🦩", pos:"Der freihändige Flamingo"},
+  {slug:"raban",   name:"Julian",   nick:"Raban",   emoji:"🍌", pos:"Der einarmige Bananenbieger"},
+];
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function getPerson(){
+  const q=new URLSearchParams(location.search).get("p");
+  if(!q) return null;
+  const key=q.trim().toLowerCase();
+  return PEOPLE.find(p=>p.slug===key || p.name.toLowerCase()===key || p.nick.toLowerCase()===key)
+      || PEOPLE[parseInt(key,10)-1] || null;
+}
+
+function renderProfile(p){
+  document.getElementById("app").innerHTML = `
+    <div class="card">
+      <div class="eyebrow">◆ MALLE 2026 ◆</div>
+      <div class="header">🔥 KAMASUTRA<br>PROFIL 🔥</div>
+
+      <div class="divider"><span class="line"></span><span class="dot">♦</span><span class="line r"></span></div>
+
+      <div class="name">${esc(p.nick.toUpperCase())}</div>
+
+      <div class="poslabel">— LIEBLINGSSTELLUNG —</div>
+      <div class="posemoji">${p.emoji}</div>
+      <div class="position">${esc(p.pos.toUpperCase())}</div>
+
+      <div class="sparkle">✦ ✦ ✦</div>
+      <div class="cta">BIST DU DABEI?</div>
+      <button class="btn" id="cta">😁</button>
+
+      <div class="footer">Was auf Malle gescannt wird,<br>bleibt auf Malle.</div>
+    </div>`;
+
+  const btn=document.getElementById("cta");
+  btn.addEventListener("click",()=>{
+    if(btn.classList.contains("done")) return;
+    btn.classList.add("done");
+    btn.textContent="SEHEN WIR AUF MALLE! 🍹";
+  });
+}
+
+function renderIndex(){
+  const base=location.origin+location.pathname;
+  const tiles=PEOPLE.map(p=>`
+    <a class="tile" href="?p=${p.slug}">
+      <span class="e">${p.emoji}</span>
+      <span class="tn">${esc(p.nick)}</span>
+      <span class="tp">${esc(p.pos)}</span>
+      <span class="tl">?p=${p.slug}</span>
+    </a>`).join("");
+  document.getElementById("app").innerHTML=`
+    <div class="grid-wrap">
+      <div class="grid-title">🔥 KAMASUTRA PROFILE 🔥</div>
+      <div class="grid-sub">◆ MALLE 2026 · 10 KANDIDATEN ◆</div>
+      <div class="grid">${tiles}</div>
+      <div class="grid-foot">Jeder QR-Code zeigt auf diese Seite mit dem passenden Kürzel dahinter.<br>
+      Tippe eine Kachel an, um das Profil zu sehen.</div>
+    </div>`;
+}
+
+const person=getPerson();
+person ? renderProfile(person) : renderIndex();
+</script>
+</body>
+</html>
